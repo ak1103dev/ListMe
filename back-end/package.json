@@ -1,0 +1,19 @@
+{
+  "name": "ListMe",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ak1103",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "ejs": "latest",
+    "morgan": "latest",
+    "express-session": "latest",
+    "cookie-parser": "latest",
+	"mongoose": "latest"
+  }
+}
