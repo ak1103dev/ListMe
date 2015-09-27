@@ -1,69 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<style>
-	#next {
-    background-color: rgba(255,150, 0, 0.8);
-	height: 100px;
-	margin: 0px;
-	padding: 10px;
-	text-align: left;
-}
-	#welcome{
-	text-align: center;
-	color: blue;
-}
-	[class="container-fluid"] {
-    background-color: rgba(0, 0, 255, 0.05);
-	padding-top : 0 px;
-	padding-left : 100px;
-	padding-right : 100px;
-	padding-bottom : 100px;
-}
-	[class="center"] {
-    text-align: center;
-}
-</style>
-<body>
-	<h3 id = "next"><img src="Logo.png" class="img-rounded" alt="logo" width="80" height="80" >          List Me T</h3>
-	<div class="container-fluid">
-	<h1 id = "welcome">welcome</h1>
-	
-	<form role="form">
-    <div class="form-group">
-      <label for="usr">Username:</label>
-      <input type="text" class="form-control" id="usr" placeholder="Username">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Password">
-    </div>
-  </form>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/login.css" type="text/css">
+	</head>
 
-   <br>
-   <div class="center">
-  <button type="button" class="btn btn-warning btn-lg" ><span class="glyphicon glyphicon-check"></span>   Login</button>
-  <a href="sign up.html" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-  
-   <br>
-    <br>
-   
-   
-	<a href="#"><img src="fb.png" class="img-rounded" alt="facebook" height ="50px" width="250px" > </a>
-	
-	<br>
-	<br>
-	
-	<a href="#"><img src="gp.png" class="img-rounded" alt="google plus" height ="50px" width="250px">  </a>
-	<!--<img src="cinqueterre.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236"> -->
-	</div>
-	
-	</div>
-   
-</body>
+	<body>
+		<h3 id = "next"><img src="images/Logo.png" class="img-rounded" alt="logo" width="80" height="80" >List Me T</h3>
+		<div class="container-fluid">
+			<h1 id = "welcome">welcome</h1>
+			<form role="form">
+				<div class="form-group">
+				<label for="usr">Username:</label>
+				<input type="text" class="form-control" id="usr" placeholder="Username">
+				</div>
+				<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd" placeholder="Password">
+				</div>
+			</form>
+			<br>
+			<div class="center">
+				<button type="button" class="btn btn-warning btn-lg" ><span class="glyphicon glyphicon-check"></span> Login</button>
+				<a href="sign up.html" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+				<br><br>
+				<a href="#"><img src="images/fb.png" class="img-rounded" alt="facebook" height ="50px" width="250px" > </a>
+				<br><br>
+				<a href="#"><img src="images/gp.png" class="img-rounded" alt="google plus" height ="50px" width="250px">  </a>
+			</div>
+		</div>
+	</body>
 </html>
