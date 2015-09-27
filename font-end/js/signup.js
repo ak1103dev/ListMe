@@ -27,19 +27,20 @@ $(document).ready(function() {
 			}
 		}
 
-		//alert(usr + " " + email + " " + pwd + " " + conpwd);
-		//alert(correctInput());
 		if (correctInput()) {
-			var url = "http://127.0.0.1:8080"
-			//url += "/" + usr + "/" + email + "/" + pwd;
-
-			$.get(url, function(data, status){
-				console.log("Data: " + data + "\nStatus: " + status);
+			//window.location.assign("http://www.w3schools.com")
+			var url = "http://localhost:8080/signup";
+			var data = {
+				username: usr,
+				email: email,
+				password: pwd
+			};
+			$.post(url, data, function() {
+				console.log("signup");
 			});
 		}
 		else {
 			var message = "You should input correct data!!!";
-			console.log(correctPassword);
 			alert(message);
 		}
 	});

@@ -14,6 +14,7 @@
     "morgan": "latest",
     "express-session": "latest",
     "cookie-parser": "latest",
-	"mongoose": "latest"
+    "mongoose": "latest",
+    "body-parser": "latest"
   }
 }
