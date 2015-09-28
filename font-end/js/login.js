@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	$("form").submit(function(){
+	$("form").submit(function(e){
+		e.preventDefault();
+
 		var email = $('#email').val();
 		var pwd = $('#pwd').val();
 		var correctInput= function() {
@@ -18,14 +20,17 @@ $(document).ready(function() {
 		}
 
 		if (correctInput()) {
-			//window.location.assign("http://www.w3schools.com")
 			var url = "http://localhost:8080/login";
 			var data = {
 				email: email,
 				password: pwd
 			};
-			$.post(url, data, function() {
-				alert("login");
+			$.post(url, data, function(res) {
+				console.log(res);
+				if (res == 'main')
+					$(location).attr('href', './main.html');
+				else
+					alert("Incorrect E-mail or Password!!!");
 			});
 		}
 		else {
