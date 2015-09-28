@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	$("form").submit(function(){
+	$("form").submit(function(e) {
+		e.preventDefault();
+
 		var usr = $('#usr').val();
 		var email = $('#email').val();
 		var pwd = $('#pwd').val();
@@ -28,15 +30,15 @@ $(document).ready(function() {
 		}
 
 		if (correctInput()) {
-			//window.location.assign("http://www.w3schools.com")
 			var url = "http://localhost:8080/signup";
 			var data = {
 				username: usr,
 				email: email,
 				password: pwd
 			};
-			$.post(url, data, function() {
-				console.log("signup");
+			$.post(url, data, function(res) {
+				console.log(res);
+				$(location).attr('href', './main.html);
 			});
 		}
 		else {

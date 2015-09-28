@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/login.css" type="text/css">
+		<script type="text/javascript" src="js/login.js"></script>
 	</head>
 
 	<body>
 		<h3 id = "next"><img src="images/Logo.png" class="img-rounded" alt="logo" width="80" height="80" >List Me T</h3>
 		<div class="container-fluid">
 			<h1 id = "welcome">welcome</h1>
-			<form role="form">
+			<form id="login_form" role="form" method='post'>
 				<div class="form-group">
-				<label for="usr">Username:</label>
-				<input type="text" class="form-control" id="usr" placeholder="Username">
+					<label for="email">E-mail:</label>
+					<input type="email" class="form-control" id="email" placeholder="E-mail">
 				</div>
 				<div class="form-group">
-				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Password">
+					<label for="pwd">Password:</label>
+					<input type="password" class="form-control" id="pwd" placeholder="Password">
+				</div>
+				<div class="form-group">
+					<div class="center">
+						<button type="submit" class="btn btn-warning btn-lg" ><span class="glyphicon glyphicon-check"></span> Login</button>
+						<a href="signup.html" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+					</div>
 				</div>
 			</form>
 			<br>
 			<div class="center">
-				<button type="button" class="btn btn-warning btn-lg" ><span class="glyphicon glyphicon-check"></span> Login</button>
-				<a href="sign up.html" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
 				<br><br>
 				<a href="#"><img src="images/fb.png" class="img-rounded" alt="facebook" height ="50px" width="250px" > </a>
 				<br><br>
