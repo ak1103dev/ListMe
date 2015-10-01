@@ -15,6 +15,10 @@
     "express-session": "latest",
     "cookie-parser": "latest",
     "mongoose": "latest",
-    "body-parser": "latest"
+    "body-parser": "latest",
+    "connect-flash": "~0.1.1",
+    "passport": "~0.3.0",
+    "passport-local": "~1.0.0",
+    "bcrypt": "~0.8.5"
   }
 }
