@@ -14,12 +14,18 @@ var taskSchema = mongoose.Schema({
 */
 
 var userSchema = mongoose.Schema({
-		local: {
-			username: String,
-			email: String,
-			password: String
-			//task: [taskSchema]
-		}
+	local: {
+		username: String,
+		email: String,
+		password: String
+		//task: [taskSchema]
+	},
+	facebook: {
+		id: String,
+		token: String,
+		email: String,
+		name: String
+	}
 });
 
 userSchema.methods.generateHash = function (password) {
