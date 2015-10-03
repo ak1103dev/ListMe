@@ -1,15 +1,17 @@
 var User = require('./models/user');
 module.exports = function(app, passport){
 	app.get('/', function(req, res){
+		console.log("main");
 		res.send("main");
 	});
 
 	app.get('/login', function (req, res) {
-		console.log(req.flash('loginMessage'));
+		console.log("login");
 		res.send("login");
 	});
 
 	app.get('/signup', function (req, res) {
+		console.log("signup");
 		res.send("signup");
 	});
 
@@ -28,19 +30,18 @@ module.exports = function(app, passport){
 			if(err)
 				throw err;
 		});
-		console.log("signup");
 		res.redirect("/signup");
 	});
 
 	app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-		successRedirect: '/profile',
-		failureRedirect: '/'
+		successRedirect: '/',
+		failureRedirect: '/login'
 	}));
 
 	app.get('/logout', function(req, res){
 		req.logout();
-		res.redirect('/');
+		res.redirect('/login');
 	})
-}
+};
