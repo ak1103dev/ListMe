@@ -15,13 +15,16 @@ mongoose.connect(configDB.url);
 require('./config/passport')(passport);
 
 app.use(function(request, response, next) {
+	response.header('Access-Control-Allow-Credentials', true);
+	//response.header('Access-Control-Allow-Methods', 'GET, POST');
 	response.header('Access-Control-Allow-Origin', '*');
-	response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With,     Content-Type, Accept');
+	response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-HTTP-Method-Override, Authorization, Content-Type, Accept');
 	next();
 });
 
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(session({
 	secret: 'anystringoftext',

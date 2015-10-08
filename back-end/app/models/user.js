@@ -1,31 +1,33 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
-/*
 var taskSchema = mongoose.Schema({
-	group: String,
-	taskName: String,
-	description: String,
-	image: String,
-	map: String,
-	dueDateTime: Date,
-	stat: String
+		name: String,
+		description: String,
+		image: String,
+		map: String,
+		due_date_time: Date,
+		stat: String
 });
-*/
+
+var groupSchema = mongoose.Schema({
+		name: String,
+		task: [taskSchema]
+});
 
 var userSchema = mongoose.Schema({
 	local: {
 		username: String,
 		email: String,
-		password: String
-		//task: [taskSchema]
+		password: String,
 	},
 	facebook: {
 		id: String,
 		token: String,
 		email: String,
-		name: String
-	}
+		name: String,
+	},
+	group: [groupSchema]
 });
 
 userSchema.methods.generateHash = function (password) {

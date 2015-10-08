@@ -24,12 +24,12 @@ module.exports = function(passport) {
 		function(req, email, password, done){
 			process.nextTick(function(){
 				User.findOne({'local.email': email}, function(err, user){
-					console.log('login');
+				console.log('ak1103');
+						console.log(email + " " + password);
 					if(err)
 						return done(err);
 					if(!user)
 						return done(null, false, req.flash('loginMessage', 'No User found'));
-					//if(user.local.password != password){
 					if(!user.validPassword(password)){
 						return done(null, false, req.flash('loginMessage', 'inavalid password'));
 					}

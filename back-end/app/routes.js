@@ -10,11 +10,6 @@ module.exports = function(app, passport){
 		res.send("login");
 	});
 
-	app.get('/signup', function (req, res) {
-		console.log("signup");
-		res.send("signup");
-	});
-
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect: '/',
 		failureRedirect: '/login',
@@ -30,7 +25,7 @@ module.exports = function(app, passport){
 			if(err)
 				throw err;
 		});
-		res.redirect("/signup");
+		res.send("signup");
 	});
 
 	app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
