@@ -24,8 +24,6 @@ module.exports = function(passport) {
 		function(req, email, password, done){
 			process.nextTick(function(){
 				User.findOne({'local.email': email}, function(err, user){
-				console.log('ak1103');
-						console.log(email + " " + password);
 					if(err)
 						return done(err);
 					if(!user)
