@@ -17,15 +17,23 @@ module.exports = function(app, passport){
 	}));
 
 	app.post('/signup', function (req, res) {
-		var newUser = new User();
-		newUser.local.username = req.body.username;
-		newUser.local.email= req.body.email;
-		newUser.local.password = newUser.generateHash(req.body.password);
-		newUser.save(function(err){
+		User.findOne({'local.email': req.body.email}, function(err, user) {
 			if(err)
-				throw err;
+					console.log(err);
+			if(user)
+					res.send("This e-mail is used.");
+			else {
+				var newUser = new User();
+				newUser.local.username = req.body.username;
+				newUser.local.email= req.body.email;
+				newUser.local.password = newUser.generateHash(req.body.password);
+				newUser.save(function(err){
+					if(err)
+						throw err;
+				});
+				res.send("signup");
+			}
 		});
-		res.send("signup");
 	});
 
 	app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
