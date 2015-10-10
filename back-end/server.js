@@ -36,12 +36,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-//app.use('/', function(req, res) {
-//	res.send('Our First Express program!');
-//	console.log(req.cookies);
-//	console.log('==============');
-//	console.log(req.session);
-//});
+app.use(function(req, res, next) {
+	console.log(req.cookies);
+	console.log('==============');
+	console.log(req.session);
+	console.log('==============');
+	console.log(req.user);
+	next();
+});
 
 require('./app/routes.js')(app, passport);
 
