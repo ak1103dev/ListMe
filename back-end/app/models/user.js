@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+/*
 var taskSchema = mongoose.Schema({
 		name: String,
 		description: String,
@@ -14,6 +15,7 @@ var groupSchema = mongoose.Schema({
 		name: String,
 		task: [taskSchema]
 });
+*/
 
 var userSchema = mongoose.Schema({
 	local: {
@@ -33,7 +35,8 @@ var userSchema = mongoose.Schema({
 		email: String,
 		name: String,
 	},
-	group: [groupSchema]
+	group: [],
+	lastActiveIndex: Number
 });
 
 userSchema.methods.generateHash = function (password) {

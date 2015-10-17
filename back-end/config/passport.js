@@ -1,9 +1,9 @@
 var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+//var FacebookStrategy = require('passport-facebook').Strategy;
+//var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var User = require('../app/models/user');
-var configAuth = require('./auth');
+//var configAuth = require('./auth');
 
 module.exports = function(passport) {
 
@@ -38,6 +38,7 @@ module.exports = function(passport) {
 		}
 	));
 
+	/*
 	passport.use(new FacebookStrategy({
 			clientID: configAuth.facebookAuth.clientID,
 			clientSecret: configAuth.facebookAuth.clientSecret,
@@ -100,4 +101,5 @@ module.exports = function(passport) {
 			});
 		}
 	));
+ */
 };

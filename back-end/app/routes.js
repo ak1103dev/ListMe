@@ -2,7 +2,7 @@ var User = require('./models/user');
 module.exports = function(app, passport){
 	app.get('/', function(req, res){
 		console.log("main");
-		res.send("main");
+		res.send(req.user);
 	});
 
 	app.get('/login', function (req, res) {
@@ -27,6 +27,7 @@ module.exports = function(app, passport){
 				newUser.local.username = req.body.username;
 				newUser.local.email= req.body.email;
 				newUser.local.password = newUser.generateHash(req.body.password);
+				newUser.lastActiveIndex = 0;
 				newUser.save(function(err){
 					if(err)
 						throw err;
@@ -53,5 +54,38 @@ module.exports = function(app, passport){
 	app.get('/logout', function(req, res){
 		req.logout();
 		res.redirect('/login');
-	})
+	});
+
+	app.post('/save', function (req, res) {
+		User.findOne({'_id': req.user._id}, function(err, user) {
+			if(err)
+					console.log(err);
+			else {
+				user.group = req.body;
+				user.save(function(err){
+					if(err)
+						throw err;
+				});
+				console.log("save");
+				res.send("save");
+			}
+		});
+	});
+
+	app.post('/setLastActiveIndex', function (req, res) {
+			console.log(req.body);
+		User.findOne({'_id': req.user._id}, function(err, user) {
+			if(err)
+					console.log(err);
+			else {
+				user.lastActiveIndex = req.body;
+				user.save(function(err){
+					if(err)
+						throw err;
+				});
+				console.log("set");
+				res.send("set");
+			}
+		});
+	});
 };
