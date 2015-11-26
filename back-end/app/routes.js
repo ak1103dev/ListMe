@@ -37,6 +37,40 @@ module.exports = function(app, passport){
 		});
 	});
 
+	/*
+	app.post('/fb-login', passport.authenticate('local-login', {
+			successRedirect: '',
+			failureRedirect: '',
+			failureFlash: true
+	}));
+*/
+
+	app.post('/facebook', function (req, res) {
+		console.log(req.body);
+		User.findOne({'facebook.id': req.body.id}, function(err, user) {
+			if(err)
+					console.log(err);
+			if(user) {
+					console.log(user);
+					res.send(user._id);
+			}
+			else {
+				var newUser = new User();
+				newUser.facebook.name = req.body.name;
+				newUser.facebook.email= req.body.email;
+				newUser.facebook.id = req.body.id;
+				newUser.lastActiveIndex = 0;
+				newUser.save(function(err){
+					if(err)
+						throw err;
+				});
+				console.log(newUser._id);
+				res.send(newUser._id);
+			}
+			console.log("facebookAuthen");
+		});
+	});
+
 	app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
@@ -74,18 +108,18 @@ module.exports = function(app, passport){
 
 	app.post('/setLastActiveIndex', function (req, res) {
 			console.log(req.body);
-		User.findOne({'_id': req.user._id}, function(err, user) {
-			if(err)
-					console.log(err);
-			else {
-				user.lastActiveIndex = req.body;
-				user.save(function(err){
-					if(err)
-						throw err;
-				});
-				console.log("set");
-				res.send("set");
-			}
-		});
+		//User.findOne({'_id': req.user._id}, function(err, user) {
+		//	if(err)
+		//			console.log(err);
+		//	else {
+		//		user.lastActiveIndex = req.body;
+		//		user.save(function(err){
+		//			if(err)
+		//				throw err;
+		//		});
+		//		console.log("set");
+		//		res.send("set");
+		//	}
+		//});
 	});
 };
